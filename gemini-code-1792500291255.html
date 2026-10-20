@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="google" content="notranslate" />
+    <title>Chat AI Pro</title>
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=1792436836623" />
+    <style>
+        :root {
+            --sat: env(safe-area-inset-top, 0px);
+            --sab: env(safe-area-inset-bottom, 0px);
+            --sal: env(safe-area-inset-left, 0px);
+            --sar: env(safe-area-inset-right, 0px);
+        }
+
+        html {
+            min-height: calc(100% + var(--sat));
+            -webkit-tap-highlight-color: transparent;
+            -webkit-overflow-scrolling: touch;
+            touch-action: manipulation;
+        }
+
+        html,
+        body {
+            overscroll-behavior: none;
+            margin: 0;
+        }
+
+        body {
+            min-height: 100dvh;
+            overflow: hidden;
+            background: rgb(var(--color-bg, 255 255 255));
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        input,
+        textarea,
+        [contenteditable] {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            user-select: text;
+        }
+
+        #app-shell {
+            display: contents;
+        }
+
+        #app-shell>#root {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+    <script type="module" crossorigin src="./assets/index-qhJeGmvP.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BsOim8DF.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png?v=1792436836623" />
+    <meta property="og:title" content="Chat AI Pro" />
+    <meta property="og:description" content="Explore conversations beyond the stars" />
+    <meta property="og:image" content="./icon-512.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Chat AI Pro" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Chat AI Pro" />
+    <meta name="twitter:description" content="Explore conversations beyond the stars" />
+    <meta name="description" content="Explore conversations beyond the stars" />
+</head>
+
+<body>
+    <div id="app-splash" aria-hidden="true"><img src="./icon-512.png?v=1792436836623" alt="" /></div>
+    <style>
+        #app-splash {
+            position: fixed;
+            inset: 0;
+            z-index: 2147483600;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000000;
+            transition: opacity .4s ease
+        }
+
+        #app-splash.hide {
+            opacity: 0;
+            pointer-events: none
+        }
+
+        #app-splash img {
+            width: 28vmin;
+            height: 28vmin;
+            border-radius: 22.37%;
+            display: block
+        }
+    </style>
+    <script>
+        setTimeout(function() {
+            var e = document.getElementById('app-splash');
+            if (!e) return;
+            var r = document.getElementById('root');
+            if (r && r.childElementCount > 0) {
+                e.classList.add('hide');
+                setTimeout(function() {
+                    e.remove()
+                }, 450);
+                return
+            }
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.style.cssText = 'margin-top:28px;padding:12px 22px;border:none;border-radius:12px;background:rgba(255,255,255,0.94);color:#1a1a1a;font:600 14px/1.6 system-ui,-apple-system,sans-serif;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.18);text-align:center';
+            b.appendChild(document.createTextNode('Something went wrong \u2014 tap to retry'));
+            b.appendChild(document.createElement('br'));
+            b.appendChild(document.createTextNode('\u062d\u062f\u062b \u062e\u0637\u0623 \u0645\u0627 \u2014 \u0627\u0636\u063a\u0637 \u0644\u0625\u0639\u0627\u062f\u0629 \u0627\u064 فإن \u0645\u062d\u0627\u0648\u0644\u0629'));
+            b.addEventListener('click', function() {
+                location.reload()
+            });
+            e.removeAttribute('aria-hidden');
+            e.appendChild(b)
+        }, 8000)
+    </script>
+    <div id="app-shell">
+        <div id="root"></div>
+    </div>
+</body>
+
+</html>
