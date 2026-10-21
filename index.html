@@ -3,29 +3,293 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#030712">
 <title>Chat AI Pro | QR Code</title>
 <style>
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#f5f7fb;color:#101827;font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;padding:24px}
-.card{width:min(100%,560px);background:#fff;border:1px solid #e5eaf2;border-radius:28px;padding:28px;text-align:center;box-shadow:0 20px 70px #0a1c3510}
-.brand{display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:12px}.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,#41c9ff,#3159f5);display:grid;place-items:center;color:white;font-size:25px;font-weight:800;box-shadow:0 8px 20px #356cf533}
-h1{font-size:22px;margin:0}.sub{margin:8px 0 22px;color:#64748b;font-size:14px}
-.qr{width:min(100%,390px);height:auto;display:block;margin:0 auto 20px;image-rendering:pixelated}
-.link{direction:ltr;overflow-wrap:anywhere;color:#2864dd;font-size:13px;margin:0 auto 20px}
-.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}a.btn,button.btn{border:0;border-radius:12px;padding:12px 18px;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer}.primary{background:#2463eb;color:white}.secondary{background:#eef3fb;color:#24354f}.note{font-size:11px;color:#8490a4;margin-top:18px}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  display:grid;
+  place-items:center;
+  background:#030712;
+  color:#f1f5f9;
+  font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;
+  padding:24px;
+  overflow:hidden;
+  position:relative;
+}
+
+/* =======================================
+   خلفية النجوم المتحركة والفضائية المتطورة
+   ======================================= */
+.space-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* الطبقة الأولى: نجوم بعيدة صغيرة تتلألأ وتتحرك ببطء */
+.stars-far {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background-image: 
+    radial-gradient(1px 1px at 25px 30px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 75px 150px, #38bdf8, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 180px 90px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 240px 200px, #818cf8, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 310px 80px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 380px 270px, #38bdf8, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  animation: moveSpace 90s linear infinite, twinkle 4s ease-in-out infinite alternate;
+}
+
+/* الطبقة الثانية: نجوم متوسطة وسريعة الحركة */
+.stars-mid {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background-image: 
+    radial-gradient(2px 2px at 50px 100px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 150px 300px, #38bdf8, rgba(0,0,0,0)),
+    radial-gradient(2.5px 2.5px at 280px 120px, #a855f7, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 350px 350px, #ffffff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  animation: moveSpace 45s linear infinite;
+  opacity: 0.8;
+}
+
+/* الطبقة الثالثة: نجوم متوهجة قريبة */
+.stars-close {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background-image: 
+    radial-gradient(3px 3px at 100px 250px, #38bdf8, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 300px 50px, #818cf8, rgba(0,0,0,0)),
+    radial-gradient(3.5px 3.5px at 450px 400px, #e0e7ff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 600px 600px;
+  animation: moveSpace 25s linear infinite, twinkle 2.5s ease-in-out infinite alternate;
+}
+
+/* حركة انزلاق النجوم عبر الشاشة */
+@keyframes moveSpace {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(-200px, -400px) rotate(5deg); }
+}
+
+/* التلألؤ والتوهج */
+@keyframes twinkle {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.9; }
+  100% { opacity: 0.4; }
+}
+
+/* إضافة شهاب ملفت للمظهر المستقبل */
+.shooting-star {
+  position: absolute;
+  top: 15%;
+  left: 80%;
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, #38bdf8, transparent);
+  border-radius: 50%;
+  transform: rotate(-35deg);
+  animation: meteor 6s ease-in-out infinite;
+  opacity: 0;
+}
+
+.shooting-star:nth-child(2) {
+  top: 45%;
+  left: 90%;
+  width: 160px;
+  animation-delay: 3s;
+}
+
+@keyframes meteor {
+  0% { transform: translate(0, 0) rotate(-35deg); opacity: 0; }
+  5% { opacity: 1; }
+  20% { transform: translate(-500px, 350px) rotate(-35deg); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* هالة حيوية مستقبليّة خلف البطاقة */
+.nebula {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(99, 102, 241, 0.12) 40%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  filter: blur(50px);
+  animation: pulseNebula 8s ease-in-out infinite alternate;
+}
+
+@keyframes pulseNebula {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+/* =======================================
+   البطاقة الرئيسية بالعنصر الزجاجي
+   ======================================= */
+.card{
+  width:min(100%,560px);
+  background:rgba(11, 17, 32, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border:1px solid rgba(56, 189, 248, 0.25);
+  border-radius:28px;
+  padding:28px;
+  text-align:center;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 
+              0 0 30px rgba(56, 189, 248, 0.15),
+              inset 0 0 20px rgba(255, 255, 255, 0.02);
+  position:relative;
+  z-index:2;
+}
+
+.brand{display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:12px}
+.logo{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  background:linear-gradient(135deg, #38bdf8, #6366f1);
+  display:grid;
+  place-items:center;
+  color:white;
+  font-size:25px;
+  font-weight:800;
+  box-shadow:0 0 25px rgba(56, 189, 248, 0.6);
+  animation: pulseLogo 3s ease-in-out infinite alternate;
+}
+
+@keyframes pulseLogo {
+  0% { box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); transform: scale(1); }
+  100% { box-shadow: 0 0 30px rgba(99, 102, 241, 0.9); transform: scale(1.05); }
+}
+
+h1{font-size:22px;margin:0;letter-spacing:0.5px;color:#f8fafc;text-shadow: 0 0 10px rgba(255,255,255,0.2);}
+.sub{margin:8px 0 22px;color:#94a3b8;font-size:14px}
+
+.qr-wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.qr{
+  width:min(100%,340px);
+  height:auto;
+  display:block;
+  margin:0 auto;
+  image-rendering:pixelated;
+  border-radius:12px;
+}
+
+.link{
+  direction:ltr;
+  overflow-wrap:anywhere;
+  color:#38bdf8;
+  font-size:13px;
+  margin:0 auto 20px;
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+  font-weight: 500;
+}
+
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+a.btn,button.btn{
+  border:0;
+  border-radius:12px;
+  padding:12px 20px;
+  font-size:14px;
+  font-weight:700;
+  text-decoration:none;
+  cursor:pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.primary{
+  background:linear-gradient(135deg, #0284c7, #4f46e5);
+  color:white;
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.4);
+}
+.primary:hover{
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 25px rgba(79, 70, 229, 0.7);
+}
+
+.secondary{
+  background:rgba(30, 41, 59, 0.7);
+  color:#cbd5e1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.secondary:hover{
+  background:rgba(51, 65, 85, 0.9);
+  color:white;
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.note{font-size:11px;color:#64748b;margin-top:18px}
 </style>
 </head>
 <body>
+
+<!-- عنصر خلفية السديم المتوهج -->
+<div class="nebula"></div>
+
+<!-- طبقات الفضاء والنجوم المتحركة -->
+<div class="space-container">
+  <div class="stars-far"></div>
+  <div class="stars-mid"></div>
+  <div class="stars-close"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+</div>
+
 <main class="card">
- <div class="brand"><div class="logo">✦</div><h1>Chat AI Pro</h1></div>
- <p class="sub">امسح رمز QR لفتح التطبيق</p>
- <img class="qr" src="https://i.postimg.cc/nLVspSQR/8807de72266ab6e49035015890c5d040.png" alt="QR Code يفتح Chat AI Pro">
- <p class="link">https://chat-ai-pro-ymod.onrender.com/</p>
- <div class="actions">
-  <a class="btn primary" href="https://chat-ai-pro-ymod.onrender.com/" target="_blank" rel="noopener">فتح التطبيق ↗</a>
-  <a class="btn secondary" href="chat-ai-pro-qr.png" download="Chat-AI-Pro-QR.png">تنزيل QR Code ↓</a>
- </div>
- <p class="note">رمز QR مرتبط برابط تطبيق Chat AI Pro.</p>
+  <div class="brand">
+    <div class="logo">✦</div>
+    <h1>Chat AI Pro</h1>
+  </div>
+  <p class="sub">امسح رمز QR لفتح التطبيق في الفضاء الرقمي</p>
+  
+  <div class="qr-wrapper">
+    <img class="qr" src="https://i.postimg.cc/nLVspSQR/8807de72266ab6e49035015890c5d040.png" alt="QR Code يفتح Chat AI Pro">
+  </div>
+  
+  <p class="link">https://chat-ai-pro-ymod.onrender.com/</p>
+  
+  <div class="actions">
+    <a class="btn primary" href="https://chat-ai-pro-ymod.onrender.com/" target="_blank" rel="noopener">فتح التطبيق ↗</a>
+    <a class="btn secondary" href="chat-ai-pro-qr.png" download="Chat-AI-Pro-QR.png">تنزيل QR Code ↓</a>
+  </div>
+  
+  <p class="note">رمز QR مرتبط برابط تطبيق Chat AI Pro.</p>
 </main>
+
 </body>
 </html>
